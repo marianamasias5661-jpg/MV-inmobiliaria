@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MV Inmobiliaria – Acompañamiento profesional para propietarios en Lima Metropolitana. Venta y alquiler de propiedades con transparencia y cercanía." />
+  <meta name="keywords" content="inmobiliaria Lima, venta de propiedades, alquiler Lima, Miraflores, San Isidro, corredora de bienes raíces" />
+  <title>MV Inmobiliaria – Tú decides. Nosotros nos encargamos.</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── TOKENS ─────────────────────────────────────────────────── */
+    :root {
+      --olive:       #4A5E2A;
+      --olive-light: #6B7F45;
+      --olive-soft:  #8FA05C;
+      --olive-pale:  #E8EDD9;
+      --beige:       #F5F0E8;
+      --beige-warm:  #EDE4D3;
+      --white:       #FAFAF8;
+      --charcoal:    #1C1C1A;
+      --mid:         #5A5A54;
+      --light:       #9A9A90;
+      --border:      #E2DDD4;
+
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans:  'DM Sans', system-ui, sans-serif;
+
+      --r-sm: 8px;
+      --r-md: 16px;
+      --r-lg: 24px;
+      --shadow-sm: 0 2px 12px rgba(74,94,42,.08);
+      --shadow-md: 0 8px 32px rgba(74,94,42,.12);
+      --shadow-lg: 0 20px 60px rgba(74,94,42,.16);
+
+      --nav-h: 72px;
+    }
+
+    /* ─── RESET ──────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--sans);
+      background: var(--white);
+      color: var(--charcoal);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+    /* ─── UTILITIES ──────────────────────────────────────────────── */
+    .container { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 96px 0; }
+    .section--light { background: var(--beige); }
+    .section--olive-pale { background: var(--olive-pale); }
+
+    .tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--sans); font-size: .7rem; font-weight: 500;
+      letter-spacing: .12em; text-transform: uppercase; color: var(--olive);
+      background: var(--olive-pale); border-radius: 100px;
+      padding: 4px 14px;
+    }
+    .tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--olive); flex-shrink: 0; }
+
+    .heading-xl {
+      font-family: var(--serif); font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 300; line-height: 1.08; letter-spacing: -.01em;
+      color: var(--charcoal);
+    }
+    .heading-xl em { font-style: italic; color: var(--olive); }
+    .heading-lg {
+      font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 300; line-height: 1.15; color: var(--charcoal);
+    }
+    .heading-lg em { font-style: italic; color: var(--olive); }
+    .heading-md {
+      font-family: var(--serif); font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+      font-weight: 400; line-height: 1.25;
+    }
+    .body-lg { font-size: 1.05rem; line-height: 1.75; color: var(--mid); }
+    .body-sm { font-size: .9rem; line-height: 1.65; color: var(--light); }
+
+    /* ─── BUTTONS ────────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--sans); font-size: .9rem; font-weight: 500;
+      border-radius: 100px; padding: 14px 28px;
+      transition: all .3s cubic-bezier(.4,0,.2,1);
+      white-space: nowrap; cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--olive); color: #fff;
+      box-shadow: 0 4px 20px rgba(74,94,42,.3);
+    }
+    .btn-primary:hover {
+      background: var(--olive-light);
+      box-shadow: 0 8px 32px rgba(74,94,42,.4);
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      background: transparent; color: var(--olive);
+      border: 1.5px solid var(--olive);
+    }
+    .btn-outline:hover {
+      background: var(--olive); color: #fff;
+      transform: translateY(-2px);
+    }
+    .btn-white {
+      background: #fff; color: var(--olive);
+      box-shadow: var(--shadow-md);
+    }
+    .btn-white:hover { background: var(--beige); transform: translateY(-2px); }
+
+    .btn svg { flex-shrink: 0; }
+    .wa-icon { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* ─── FADE-IN ANIMATION ──────────────────────────────────────── */
+    .fade-in {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity .7s cubic-bezier(.4,0,.2,1), transform .7s cubic-bezier(.4,0,.2,1);
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .fade-in-delay-1 { transition-delay: .1s; }
+    .fade-in-delay-2 { transition-delay: .2s; }
+    .fade-in-delay-3 { transition-delay: .3s; }
+    .fade-in-delay-4 { transition-delay: .4s; }
+
+    /* ─── NAVBAR ─────────────────────────────────────────────────── */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: var(--nav-h);
+      background: transparent;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      border-bottom: 1px solid transparent;
+      transition: background .4s, border-color .4s, box-shadow .4s, backdrop-filter .4s;
+    }
+    #navbar.scrolled {
+      background: rgba(250,250,248,.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom-color: var(--border);
+      box-shadow: 0 4px 24px rgba(74,94,42,.08);
+    }
+    /* Nav links white over hero, normal after scroll */
+    #navbar:not(.scrolled) .nav-menu a { color: rgba(255,255,255,.8); }
+    #navbar:not(.scrolled) .nav-menu a:hover { color: #fff; background: rgba(255,255,255,.1); }
+    #navbar:not(.scrolled) .nav-logo-text { color: #fff; }
+    #navbar:not(.scrolled) .nav-logo-sub { color: rgba(255,255,255,.6); }
+    #navbar:not(.scrolled) .nav-logo-icon { background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.25); }
+    #navbar:not(.scrolled) .nav-toggle span { background: #fff; }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 100%; gap: 24px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px; flex-shrink: 0;
+    }
+    .nav-logo-icon {
+      width: 36px; height: 36px; background: var(--olive); border-radius: var(--r-sm);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav-logo-icon svg { width: 20px; height: 20px; fill: none; stroke: #fff; stroke-width: 2; }
+    .nav-logo-text { font-family: var(--serif); font-size: 1.15rem; font-weight: 600; color: var(--charcoal); }
+    .nav-logo-sub { font-family: var(--sans); font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: var(--olive); }
+
+    .nav-menu { display: flex; align-items: center; gap: 0; }
+    .nav-menu a {
+      font-size: .82rem; font-weight: 400; color: var(--mid); padding: 8px 14px;
+      border-radius: 100px; transition: color .2s, background .2s;
+    }
+    .nav-menu a:hover { color: var(--olive); background: var(--olive-pale); }
+
+    .nav-cta { flex-shrink: 0; }
+    .nav-cta .btn { padding: 10px 22px; font-size: .82rem; }
+
+    .nav-toggle {
+      display: none; flex-direction: column; gap: 5px;
+      width: 32px; padding: 4px; cursor: pointer;
+    }
+    .nav-toggle span {
+      display: block; height: 2px; background: var(--charcoal); border-radius: 2px;
+      transition: all .3s;
+    }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-mobile {
+      display: none; flex-direction: column; gap: 4px;
+      background: var(--white); padding: 16px 24px 24px;
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
+    }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a {
+      font-size: .9rem; color: var(--mid); padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      transition: color .2s;
+    }
+    .nav-mobile a:hover { color: var(--olive); }
+    .nav-mobile .btn { margin-top: 12px; justify-content: center; }
+
+    /* ─── HERO ───────────────────────────────────────────────────── */
+    #hero {
+      position: relative;
+      width: 100vw;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding: calc(var(--nav-h) + 60px) 0 120px;
+    }
+    .hero-video-wrap {
+      position: absolute; inset: 0; z-index: 0;
+      overflow: hidden;
+    }
+    .hero-video-wrap video {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transform: scale(1.04);
+      filter: blur(2px);
+      transition: transform 20s ease;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(
+        105deg,
+        rgba(10,10,8,.72) 0%,
+        rgba(20,20,16,.58) 55%,
+        rgba(30,28,22,.38) 100%
+      );
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 700px;
+      padding: 0;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--sans); font-size: .7rem; font-weight: 500;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: rgba(255,255,255,.65);
+      margin-bottom: 32px;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: block; width: 32px; height: 1px;
+      background: rgba(255,255,255,.4);
+    }
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(3.2rem, 7vw, 6.2rem);
+      font-weight: 300;
+      line-height: 1.04;
+      letter-spacing: -.02em;
+      color: #fff;
+      margin-bottom: 28px;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: rgba(232,237,217,.85);
+    }
+    .hero-subtitle {
+      font-size: clamp(.95rem, 1.4vw, 1.1rem);
+      color: rgba(255,255,255,.72);
+      line-height: 1.8;
+      max-width: 520px;
+      font-weight: 300;
+    }
+    .hero-scroll-hint {
+      position: absolute; bottom: 40px; left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+    }
+    .hero-scroll-hint span {
+      font-size: .65rem; letter-spacing: .18em; text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+    }
+    .hero-scroll-line {
+      width: 1px; height: 48px;
+      background: linear-gradient(to bottom, rgba(255,255,255,.4), transparent);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+    @keyframes scrollLine {
+      0%   { transform: scaleY(0); transform-origin: top; }
+      50%  { transform: scaleY(1); transform-origin: top; }
+      51%  { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    .hero-badge {
+      position: absolute; bottom: 28px; left: -20px;
+      background: #fff; border-radius: var(--r-md);
+      padding: 16px 20px; box-shadow: var(--shadow-lg);
+      max-width: 220px;
+    }
+    .hero-badge-num { font-family: var(--serif); font-size: 2rem; font-weight: 300; color: var(--olive); line-height: 1; }
+    .hero-badge-txt { font-size: .78rem; color: var(--mid); margin-top: 4px; }
+
+    /* ─── QUIÉNES SOMOS ──────────────────────────────────────────── */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .about-img-wrap {
+      border-radius: var(--r-lg); overflow: hidden;
+      aspect-ratio: 3/4; box-shadow: var(--shadow-md);
+      position: relative;
+    }
+    .about-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .about-img-accent {
+      position: absolute; top: 24px; right: 24px;
+      background: var(--olive); color: #fff; border-radius: var(--r-md);
+      padding: 12px 16px; font-family: var(--serif); font-size: 1rem;
+      font-style: italic; max-width: 160px; line-height: 1.4;
+    }
+    .about-content { padding-top: 16px; }
+    .about-content .tag { margin-bottom: 24px; }
+    .about-content .heading-lg { margin-bottom: 24px; }
+    .about-content .body-lg { margin-bottom: 28px; }
+
+    .about-trayectoria {
+      display: inline-flex; align-items: center; gap: 20px;
+      background: var(--white); border: 1px solid var(--border);
+      border-left: 4px solid var(--olive);
+      border-radius: var(--r-md); padding: 20px 24px;
+      margin-bottom: 32px; box-shadow: var(--shadow-sm);
+    }
+    .about-trayectoria-num {
+      font-family: var(--serif); font-size: 3rem; font-weight: 300;
+      color: var(--olive); line-height: 1; flex-shrink: 0;
+    }
+    .about-trayectoria-txt {
+      font-size: .88rem; color: var(--mid); line-height: 1.55;
+    }
+    .about-trayectoria-txt strong {
+      display: block; font-size: 1rem; font-weight: 500;
+      color: var(--charcoal); margin-bottom: 2px;
+    }
+
+    .zones { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .zone-card {
+      background: var(--white); border-radius: var(--r-md); padding: 20px 24px;
+      border: 1px solid var(--border); box-shadow: var(--shadow-sm);
+    }
+    .zone-card-title {
+      font-family: var(--serif); font-size: 1rem; font-weight: 600; color: var(--olive);
+      margin-bottom: 12px; padding-bottom: 10px;
+      border-bottom: 1px solid var(--olive-pale);
+    }
+    .zone-card ul { display: flex; flex-direction: column; gap: 6px; }
+    .zone-card li { font-size: .85rem; color: var(--mid); padding-left: 14px; position: relative; }
+    .zone-card li::before {
+      content: ''; position: absolute; left: 0; top: 50%;
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--olive-soft); transform: translateY(-50%);
+    }
+
+   ────────────────────────────────────────────── */
+    .diff-intro { text-align: center; max-width: 680px; margin: 0 auto 64px; }
+    .diff-intro .tag { margin-bottom: 20px; }
+    .diff-intro .heading-lg { margin-bottom: 16px; }
+    .diff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .diff-card {
+      background: var(--white); border-radius: var(--r-lg); padding: 32px 24px;
+      border: 1px solid var(--border); box-shadow: var(--shadow-sm);
+      transition: transform .3s, box-shadow .3s;
+      position: relative; overflow: hidden;
+    }
+    .diff-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 3px; background: var(--olive); transform: scaleX(0);
+      transform-origin: left; transition: transform .3s;
+    }
+    .diff-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+    .diff-card:hover::after { transform: scaleX(1); }
+    .diff-icon {
+      width: 52px; height: 52px; background: var(--olive-pale);
+      border-radius: var(--r-md); display: flex; align-items: center;
+      justify-content: center; margin-bottom: 20px;
+    }
+    .diff-icon svg { width: 26px; height: 26px; stroke: var(--olive); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .diff-card h3 { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; margin-bottom: 10px; }
+    .diff-card p { font-size: .875rem; color: var(--mid); line-height: 1.65; }
+
+    /* ─── PROGRAMA ───────────────────────────────────────────────── */
+    .prog-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .prog-content .tag { margin-bottom: 24px; }
+    .prog-content .heading-lg { margin-bottom: 20px; }
+    .prog-content .body-lg { margin-bottom: 40px; }
+    .prog-benefits { display: flex; flex-direction: column; gap: 14px; }
+    .prog-benefit {
+      display: flex; align-items: center; gap: 16px;
+      background: var(--white); border-radius: var(--r-md);
+      padding: 16px 20px; border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm); transition: border-color .2s, transform .2s;
+    }
+    .prog-benefit:hover { border-color: var(--olive-soft); transform: translateX(4px); }
+    .prog-benefit-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--olive); flex-shrink: 0; }
+    .prog-benefit span { font-size: .9rem; font-weight: 500; color: var(--charcoal); }
+
+    .prog-visual {
+      background: var(--olive); border-radius: var(--r-lg);
+      padding: 48px 40px; color: #fff;
+      position: relative; overflow: hidden;
+    }
+    .prog-visual::before {
+      content: ''; position: absolute;
+      top: -40%; right: -20%; width: 80%; padding-bottom: 80%;
+      background: radial-gradient(circle, rgba(255,255,255,.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .prog-visual-quote {
+      font-family: var(--serif); font-size: 1.6rem; font-weight: 300; font-style: italic;
+      line-height: 1.4; margin-bottom: 32px; opacity: .95; position: relative;
+    }
+    .prog-visual-quote::before {
+      content: '"'; position: absolute; top: -16px; left: -8px;
+      font-size: 4rem; opacity: .2; font-family: var(--serif); line-height: 1;
+    }
+    .prog-visual-steps { display: flex; flex-direction: column; gap: 20px; }
+    .prog-step { display: flex; align-items: flex-start; gap: 16px; }
+    .prog-step-num {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.3);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      font-family: var(--serif); font-size: .9rem; font-style: italic;
+    }
+    .prog-step-text { font-size: .9rem; opacity: .88; line-height: 1.6; padding-top: 6px; }
+    .prog-step-text strong { display: block; font-weight: 500; opacity: 1; margin-bottom: 2px; font-size: .95rem; }
+
+    /* ─── EQUIPO ─────────────────────────────────────────────────── */
+    .team-intro { text-align: center; max-width: 580px; margin: 0 auto 56px; }
+    .team-intro .tag { margin-bottom: 20px; }
+    .team-intro .heading-lg { margin-bottom: 12px; }
+    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .team-card {
+      background: var(--white); border-radius: var(--r-lg);
+      overflow: hidden; border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      transition: transform .3s, box-shadow .3s;
+    }
+    .team-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+    .team-img {
+      aspect-ratio: 1; overflow: hidden; background: var(--olive-pale);
+      position: relative;
+    }
+    .team-img img { width: 100%; height: 100%; object-fit: cover; }
+    .team-img-placeholder {
+      width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, var(--olive-pale) 0%, var(--beige-warm) 100%);
+    }
+    .team-img-placeholder svg { width: 64px; height: 64px; stroke: var(--olive-soft); fill: none; stroke-width: 1; }
+    .team-body { padding: 24px; }
+    .team-name { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; margin-bottom: 4px; }
+    .team-role { font-size: .78rem; text-transform: uppercase; letter-spacing: .1em; color: var(--olive); font-weight: 500; margin-bottom: 14px; }
+    .team-bio { font-size: .84rem; color: var(--mid); line-height: 1.65; }
+    .team-quote {
+      margin-top: 16px; padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-family: var(--serif); font-size: .95rem; font-style: italic;
+      color: var(--olive); line-height: 1.5;
+    }
+
+    /* ─── TESTIMONIOS ────────────────────────────────────────────── */
+    .testi-intro { text-align: center; max-width: 560px; margin: 0 auto 56px; }
+    .testi-intro .tag { margin-bottom: 20px; }
+    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 48px; }
+    .testi-card {
+      background: var(--white); border-radius: var(--r-lg); padding: 32px 28px;
+      border: 1px solid var(--border); box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+    .testi-stars { display: flex; gap: 4px; margin-bottom: 16px; }
+    .testi-stars svg { width: 16px; height: 16px; fill: #D4A23A; }
+    .testi-text { font-family: var(--serif); font-size: 1.05rem; font-style: italic; line-height: 1.65; color: var(--charcoal); margin-bottom: 20px; }
+    .testi-author { display: flex; align-items: center; gap: 12px; }
+    .testi-avatar {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: var(--olive-pale); overflow: hidden; flex-shrink: 0;
+    }
+    .testi-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .testi-avatar-ph { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+    .testi-avatar-ph svg { width: 24px; height: 24px; stroke: var(--olive-soft); fill: none; stroke-width: 1.5; }
+    .testi-meta-name { font-size: .88rem; font-weight: 500; color: var(--charcoal); }
+    .testi-meta-type { font-size: .78rem; color: var(--light); }
+
+    .gallery-label { text-align: center; margin-bottom: 28px; }
+    .gallery-label p { font-size: .8rem; text-transform: uppercase; letter-spacing: .12em; color: var(--light); }
+    .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .gallery-item {
+      border-radius: var(--r-md); aspect-ratio: 4/3;
+      background: var(--beige-warm); overflow: hidden;
+      box-shadow: var(--shadow-sm); transition: transform .3s;
+    }
+    .gallery-item:hover { transform: scale(1.03); }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+    .gallery-item-ph {
+      width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, var(--beige-warm) 0%, var(--olive-pale) 100%);
+    }
+    .gallery-item-ph svg { width: 32px; height: 32px; stroke: var(--olive-soft); fill: none; stroke-width: 1; }
+
+    /* ─── FAQ ────────────────────────────────────────────────────── */
+    .faq-wrap { max-width: 760px; margin: 0 auto; }
+    .faq-intro { text-align: center; margin-bottom: 48px; }
+    .faq-intro .tag { margin-bottom: 20px; }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      transition: background .2s;
+    }
+    .faq-item:first-of-type { border-top: 1px solid var(--border); }
+    .faq-q {
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 0; gap: 20px; cursor: pointer;
+      font-size: 1rem; font-weight: 500; color: var(--charcoal);
+      text-align: left; background: none; border: none; font-family: var(--sans);
+      transition: color .2s;
+    }
+    .faq-q:hover { color: var(--olive); }
+    .faq-q-icon {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--olive-pale); display: flex; align-items: center;
+      justify-content: center; flex-shrink: 0; transition: transform .3s, background .2s;
+    }
+    .faq-q-icon svg { width: 16px; height: 16px; stroke: var(--olive); stroke-width: 2; fill: none; }
+    .faq-item.open .faq-q-icon { transform: rotate(45deg); background: var(--olive); }
+    .faq-item.open .faq-q-icon svg { stroke: #fff; }
+    .faq-item.open .faq-q { color: var(--olive); }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height .4s cubic-bezier(.4,0,.2,1), padding .3s;
+    }
+    .faq-a-inner { padding-bottom: 22px; font-size: .94rem; color: var(--mid); line-height: 1.75; }
+
+    /* ─── CTA FINAL ──────────────────────────────────────────────── */
+    #cta {
+      background: var(--olive); color: #fff;
+      text-align: center; padding: 96px 0;
+      position: relative; overflow: hidden;
+    }
+    #cta::before {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    #cta .container { position: relative; }
+    .cta-tag { margin-bottom: 24px; background: rgba(255,255,255,.15); color: rgba(255,255,255,.9); }
+    .cta-tag::before { background: rgba(255,255,255,.7); }
+    #cta .heading-lg { color: #fff; margin-bottom: 16px; }
+    #cta .heading-lg em { color: rgba(255,255,255,.7); }
+    .cta-sub { font-size: 1.05rem; color: rgba(255,255,255,.8); max-width: 480px; margin: 0 auto 40px; }
+    .cta-btns { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+
+    /* ─── FOOTER ─────────────────────────────────────────────────── */
+    footer {
+      background: var(--charcoal); color: rgba(255,255,255,.7);
+      padding: 56px 0 32px;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px; margin-bottom: 48px;
+    }
+    .footer-brand .nav-logo-text { color: #fff; font-size: 1.2rem; }
+    .footer-brand .nav-logo-sub { color: rgba(255,255,255,.5); }
+    .footer-desc { font-size: .85rem; margin-top: 16px; line-height: 1.7; color: rgba(255,255,255,.5); max-width: 260px; }
+    .footer-contact { margin-top: 20px; display: flex; flex-direction: column; gap: 8px; }
+    .footer-contact a { font-size: .85rem; color: rgba(255,255,255,.7); display: flex; align-items: center; gap: 8px; transition: color .2s; }
+    .footer-contact a:hover { color: var(--olive-soft); }
+    .footer-contact svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.5; flex-shrink: 0; }
+    .footer-col-title { font-size: .7rem; text-transform: uppercase; letter-spacing: .12em; color: rgba(255,255,255,.4); margin-bottom: 16px; font-weight: 600; }
+    .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a { font-size: .85rem; color: rgba(255,255,255,.6); transition: color .2s; }
+    .footer-col a:hover { color: rgba(255,255,255,.9); }
+    .footer-social { display: flex; gap: 10px; margin-top: 8px; }
+    .footer-social-link {
+      width: 38px; height: 38px; border-radius: var(--r-sm);
+      background: rgba(255,255,255,.07); display: flex; align-items: center;
+      justify-content: center; transition: background .2s;
+    }
+    .footer-social-link:hover { background: var(--olive); }
+    .footer-social-link svg { width: 18px; height: 18px; stroke: rgba(255,255,255,.7); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.08); padding-top: 28px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+      font-size: .78rem; color: rgba(255,255,255,.35);
+    }
+
+    /* ─── WHATSAPP FLOAT ─────────────────────────────────────────── */
+    .wa-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 999;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .wa-float-label {
+      background: var(--white); color: var(--charcoal);
+      font-size: .82rem; font-weight: 500; padding: 10px 16px;
+      border-radius: 100px; box-shadow: var(--shadow-md);
+      opacity: 0; transform: translateX(8px);
+      transition: opacity .3s, transform .3s;
+      white-space: nowrap;
+    }
+    .wa-float:hover .wa-float-label { opacity: 1; transform: translateX(0); }
+    .wa-float-btn {
+      width: 60px; height: 60px; border-radius: 50%;
+      background: #25D366; display: flex; align-items: center;
+      justify-content: center; box-shadow: 0 6px 28px rgba(37,211,102,.4);
+      transition: transform .3s, box-shadow .3s; cursor: pointer;
+    }
+    .wa-float-btn:hover { transform: scale(1.1); box-shadow: 0 8px 36px rgba(37,211,102,.55); }
+    .wa-float-btn svg { width: 30px; height: 30px; fill: #fff; }
+    .wa-pulse {
+      position: absolute; top: 0; right: 0;
+      width: 18px; height: 18px; background: #ff4757;
+      border-radius: 50%; border: 2px solid var(--white);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .55rem; font-weight: 700; color: #fff;
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .diff-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+    @media (max-width: 768px) {
+      .section { padding: 64px 0; }
+      #hero { min-height: 100svh; }
+      .hero-content { max-width: 100%; }
+      .hero-title { font-size: clamp(2.4rem, 10vw, 3.6rem); }
+      .hero-badge { left: 0; bottom: 16px; }
+      .about-grid, .prog-wrap { grid-template-columns: 1fr; gap: 48px; }
+      .team-grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .zones { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .nav-menu, .nav-cta { display: none; }
+      .nav-toggle { display: flex; }
+    }
+    @media (max-width: 480px) {
+      .diff-grid { grid-template-columns: 1fr; }
+      .hero-ctas { flex-direction: column; }
+      .hero-ctas .btn { width: 100%; justify-content: center; }
+      .cta-btns .btn { width: 100%; justify-content: center; max-width: 320px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════ NAVBAR -->
+<nav id="navbar" role="navigation" aria-label="Navegación principal">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="MV Inmobiliaria – inicio">
+        <div class="nav-logo-icon">
+          <img src="logo.png" alt="Logo de MV Inmobiliaria" class="nav-logo-img" />
+        </div>
+        <div>
+          <div class="nav-logo-text">MV Inmobiliaria</div>
+        </div>
+      </a>
+
+      <nav class="nav-menu" aria-label="Menú">
+        <a href="#hero">Inicio</a>
+        <a href="#about">Quiénes Somos</a>
+        <a href="#programa">Programa</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#equipo">Equipo</a>
+        <a href="#testimonios">Testimonios</a>
+      </nav>
+
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" id="navToggle">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-mobile" id="navMobile" role="menu">
+    <a href="#hero" role="menuitem">Inicio</a>
+    <a href="#about" role="menuitem">Quiénes Somos</a>
+    <a href="#programa" role="menuitem">Programa</a>
+    <a href="#beneficios" role="menuitem">Beneficios</a>
+    <a href="#equipo" role="menuitem">Equipo</a>
+    <a href="#testimonios" role="menuitem">Testimonios</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════ HERO -->
+<section id="hero" aria-labelledby="hero-title">
+  <!-- Video de fondo -->
+  <div class="hero-video-wrap" aria-hidden="true">
+    <video autoplay muted loop playsinline preload="auto"
+      poster="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80">
+      <source src="https://videos.pexels.com/video-files/3843432/3843432-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+      <!-- Fallback imagen si el video no carga -->
+    </video>
+    <div class="hero-overlay"></div>
+  </div>
+
+  <!-- Contenido alineado a la izquierda -->
+  <div class="container" style="position:relative;z-index:2;padding-top:var(--nav-h);">
+    <div class="hero-content fade-in">
+      <p class="hero-eyebrow">Corredora de Bienes Raíces · Lima Metropolitana</p>
+      <h1 class="hero-title" id="hero-title">
+        Tú decides.<br><em>Nosotros nos</em><br>encargamos.
+      </h1>
+      <p class="hero-subtitle fade-in fade-in-delay-1">
+        MV Inmobiliaria acompaña a propietarios durante todo el proceso de venta o alquiler de su propiedad mediante una gestión profesional, cercana y transparente.
+      </p>
+    </div>
+  </div>
+
+  <!-- Indicador de scroll -->
+  <div class="hero-scroll-hint" aria-hidden="true">
+    <span>Descubrir</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ QUIÉNES SOMOS -->
+<section id="about" class="section section--light" aria-labelledby="about-title">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap fade-in">
+        <img src="img1.jpg" alt="Equipo de la inmobiliaria trabajando" />
+        <div class="about-img-accent" aria-hidden="true">"Un acompañamiento que marca la diferencia"</div>
+      </div>
+      <div class="about-content">
+        <div class="tag fade-in">Quiénes Somos</div>
+        <h2 class="heading-lg fade-in fade-in-delay-1" id="about-title">
+          Más que una inmobiliaria,<br><em>un acompañamiento real.</em>
+        </h2>
+        <p class="body-lg fade-in fade-in-delay-2">
+          MV Inmobiliaria es una corredora de bienes raíces especializada en la compra, venta y alquiler de propiedades en Lima Metropolitana. Entre sus servicios se encuentran la valoración y comercialización de inmuebles, el posicionamiento estratégico de propiedades en canales digitales, la gestión y filtrado de potenciales interesados, la coordinación de visitas, la negociación directa en representación de los intereses del propietario y el seguimiento necesario para facilitar una operación segura y eficiente.
+        </p>
+        <div class="about-trayectoria fade-in fade-in-delay-2">
+          <div class="about-trayectoria-num">3+</div>
+          <div class="about-trayectoria-txt">
+            <strong>años acompañando propietarios</strong>
+            en Lima Metropolitana
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="beneficios" class="section" aria-labelledby="diff-title">
+  <div class="container">
+    <div class="diff-intro fade-in">
+      <div class="tag">Diferencial MV</div>
+      <h2 class="heading-lg" id="diff-title" style="margin-top:16px;">
+        No solo publicamos.<br><em>Acompañamos activamente.</em>
+      </h2>
+    </div>
+    <div class="diff-grid">
+      <div class="diff-card fade-in fade-in-delay-1">
+        <div class="diff-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <h3>Transparencia</h3>
+        <p>Comunicación clara y honesta durante todo el proceso. Sin sorpresas ni ambigüedades en cada etapa.</p>
+      </div>
+      <div class="diff-card fade-in fade-in-delay-2">
+        <div class="diff-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Acompañamiento</h3>
+        <p>Estamos presentes en cada momento del proceso, desde la valoración hasta el cierre de la operación.</p>
+      </div>
+      <div class="diff-card fade-in fade-in-delay-3">
+        <div class="diff-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h3>Marketing Inmobiliario</h3>
+        <p>Posicionamiento estratégico en canales digitales y presentación profesional de cada propiedad.</p>
+      </div>
+      <div class="diff-card fade-in fade-in-delay-4">
+        <div class="diff-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+        </div>
+        <h3>Gestión Integral</h3>
+        <p>Coordinamos visitas, filtramos interesados y asesoramos la negociación para proteger tus intereses.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ PROGRAMA -->
+<section id="programa" class="section section--light" aria-labelledby="prog-title">
+  <div class="container">
+    <div class="prog-wrap">
+      <div class="prog-content">
+        <div class="tag fade-in">Transparencia MV</div>
+        <h2 class="heading-lg fade-in fade-in-delay-1" id="prog-title">
+          Una experiencia más cercana<br><em>y transparente.</em>
+        </h2>
+        <p class="body-lg fade-in fade-in-delay-2">
+          Transparencia MV es una iniciativa orientada a brindar mayor claridad, acompañamiento y confianza durante el proceso de venta o alquiler de tu propiedad.
+        </p>
+        <div class="prog-benefits fade-in fade-in-delay-3">
+          <div class="prog-benefit"><div class="prog-benefit-dot"></div><span>Mayor tranquilidad durante el proceso</span></div>
+          <div class="prog-benefit"><div class="prog-benefit-dot"></div><span>Comunicación directa y continua</span></div>
+          <div class="prog-benefit"><div class="prog-benefit-dot"></div><span>Acompañamiento cercano en cada etapa</span></div>
+          <div class="prog-benefit"><div class="prog-benefit-dot"></div><span>Más claridad en la toma de decisiones</span></div>
+          <div class="prog-benefit"><div class="prog-benefit-dot"></div><span>Atención personalizada y humana</span></div>
+        </div>
+      </div>
+      <div class="prog-visual fade-in fade-in-delay-2">
+        <p class="prog-visual-quote">Cada propietario merece saber qué pasa con su propiedad.</p>
+        <div class="prog-visual-steps">
+          <div class="prog-step">
+            <div class="prog-step-num">1</div>
+            <div class="prog-step-text"><strong>Conversemos sobre tu propiedad</strong>Comenzamos con una conversación para entender tu situación y objetivos.</div>
+          </div>
+          <div class="prog-step">
+            <div class="prog-step-num">2</div>
+            <div class="prog-step-text"><strong>Analizamos tus necesidades</strong>Evaluamos tu propiedad y diseñamos una estrategia a tu medida.</div>
+          </div>
+          <div class="prog-step">
+            <div class="prog-step-num">3</div>
+            <div class="prog-step-text"><strong>Te acompañamos en el proceso</strong>Comunicación clara y profesional en cada paso hasta el cierre.</div>
+          </div>
+        </div>
+        <a href="https://wa.me/51940212339" target="_blank" rel="noopener" class="btn btn-white" style="margin-top:32px;">
+          <svg class="wa-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          Hablar por WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ EQUIPO -->
+<section id="equipo" class="section" aria-labelledby="team-title">
+  <div class="container">
+    <div class="team-intro fade-in">
+      <div class="tag">Nuestro Equipo</div>
+      <h2 class="heading-lg" id="team-title" style="margin-top:16px;">Personas que<br><em>te acompañan.</em></h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-card fade-in fade-in-delay-1">
+        <div class="team-img">
+        <img src="img2.jpg" alt="Mónica Valdivia - Agente Inmobiliario" />
+        </div>
+        <div class="team-body">
+          <div class="team-name">Mónica Valdivia</div>
+          <div class="team-role">Agente Inmobiliario</div>
+          <div class="team-quote">"Entender a las personas es tan importante como entender el mercado."</div>
+        </div>
+      </div>
+      <div class="team-card fade-in fade-in-delay-2">
+        <div class="team-img">
+          <img src="img4.jpg.png" alt="Zila Garcés - Asesora inmobiliaria" />
+        </div>
+        <div class="team-body">
+          <div class="team-name">Zila Garcés</div>
+          <div class="team-role">Asesora Inmobiliaria</div>
+          <div class="team-quote">"Comunicar es escuchar con atención y hablar con intención."</div>
+        </div>
+      </div>
+      <div class="team-card fade-in fade-in-delay-3">
+        <div class="team-img">
+          <img src="img3.jpg" alt="Luisa Quezada - Asesora inmobiliaria" />
+        </div>
+        <div class="team-body">
+          <div class="team-name">Luisa Quezada</div>
+          <div class="team-role">Asesora Inmobiliaria</div>
+          <div class="team-quote">"Cada desafío tiene una solución cuando se trabaja con compromiso."</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ TESTIMONIOS -->
+<section id="testimonios" class="section section--light" aria-labelledby="testi-title">
+  <div class="container">
+    <div class="testi-intro fade-in">
+      <div class="tag">Testimonios</div>
+      <h2 class="heading-lg" id="testi-title" style="margin-top:16px;">Lo que dicen<br><em>nuestros clientes.</em></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card fade-in fade-in-delay-1">
+        <div class="testi-stars" aria-label="5 de 5 estrellas">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testi-text">"Me sentí acompañada en todo momento. El equipo de MV estuvo disponible para resolver mis dudas y el proceso fue mucho más tranquilo de lo que esperaba."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">
+            <div class="testi-avatar-ph" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          </div>
+          <div>
+            <div class="testi-meta-name">C. R.</div>
+            <div class="testi-meta-type">Venta de departamento · Miraflores</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card fade-in fade-in-delay-2">
+        <div class="testi-stars" aria-label="5 de 5 estrellas">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testi-text">"Lo que más valoré fue la honestidad. Nunca me prometieron lo que no podían cumplir, y eso generó mucha confianza desde el primer momento."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">
+            <div class="testi-avatar-ph" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          </div>
+          <div>
+            <div class="testi-meta-name">R. M.</div>
+            <div class="testi-meta-type">Alquiler de casa · San Borja</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card fade-in fade-in-delay-3">
+        <div class="testi-stars" aria-label="5 de 5 estrellas">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testi-text">"Proceso ágil y muy profesional. Estuvieron presente en cada visita y nos orientaron muy bien para este proceso de compraventa. Totalmente recomendable."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">
+            <div class="testi-avatar-ph" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          </div>
+          <div>
+            <div class="testi-meta-name">P. A.</div>
+            <div class="testi-meta-type">Venta de departamento · Surco</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gallery placeholders -->
+    <div class="gallery-label fade-in">
+      <p>Operaciones realizadas · Procesos reales</p>
+    </div>
+    <div class="gallery-grid fade-in">
+      <div class="gallery-item">
+        <img src="img5.jpg" alt="Asesoría inmobiliaria durante una firma de contrato de compraventa" />
+      </div>
+      <div class="gallery-item">
+        <img src="img6.jpg" alt="Vista del interior de una propiedad residencial gestionada con éxito" />
+      </div>
+      <div class="gallery-item">
+        <img src="img7.jpg" alt="Reunión de negociación con clientes en la oficina inmobiliaria" />
+      </div>
+      <div class="gallery-item">
+        <img src="img8.jpeg" alt="Entrega de llaves a los nuevos propietarios de un inmueble" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ FAQ -->
+<section id="contacto" class="section" aria-labelledby="faq-title">
+  <div class="container">
+    <div class="faq-wrap">
+      <div class="faq-intro fade-in">
+        <div class="tag">Preguntas Frecuentes</div>
+        <h2 class="heading-lg" id="faq-title" style="margin-top:16px;">Resolvemos<br><em>tus dudas.</em></h2>
+      </div>
+      <div class="faq-list" role="list">
+        <div class="faq-item fade-in" role="listitem">
+          <button class="faq-q" aria-expanded="false">
+            ¿MV Inmobiliaria trabaja solo en Lima?
+            <div class="faq-q-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </button>
+          <div class="faq-a" role="region"><div class="faq-a-inner">Sí. Nos especializamos exclusivamente en Lima Metropolitana, principalmente en distritos como Miraflores, San Isidro, San Borja, Santiago de Surco, La Molina, Barranco, San Miguel, Pueblo Libre, Magdalena del Mar, Surquillo, Lince y Jesús María, lo que nos permite conocer mejor cada zona y brindar una asesoría más precisa a nuestros clientes.</div></div>
+        </div>
+        <div class="faq-item fade-in fade-in-delay-1" role="listitem">
+          <button class="faq-q" aria-expanded="false">
+            ¿Trabajan bajo modalidad exclusiva?
+            <div class="faq-q-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </button>
+          <div class="faq-a" role="region"><div class="faq-a-inner">Sí. Trabajamos únicamente bajo representación exclusiva para brindar un servicio más comprometido, una estrategia comercial unificada y un mejor acompañamiento durante todo el proceso inmobiliario.</div></div>
+        </div>
+        <div class="faq-item fade-in fade-in-delay-2" role="listitem">
+          <button class="faq-q" aria-expanded="false">
+            ¿Cómo puedo vender mi propiedad con MV?
+            <div class="faq-q-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </button>
+          <div class="faq-a" role="region"><div class="faq-a-inner">El primer paso es conversación. Puedes escribirnos por WhatsApp y coordinar una reunión para conocer tu propiedad. A partir de ahí, analizamos tu situación, te explicamos cómo trabajamos y comenzamos el proceso juntos, con comunicación clara en cada etapa.</div></div>
+        </div>
+        <div class="faq-item fade-in fade-in-delay-3" role="listitem">
+          <button class="faq-q" aria-expanded="false">
+            ¿Cómo puedo alquilar mi inmueble?
+            <div class="faq-q-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </button>
+          <div class="faq-a" role="region"><div class="faq-a-inner">El proceso de alquiler inicia igual que la venta: con una conversación. Nos encargamos del posicionamiento de tu propiedad, el filtrado de candidatos y la coordinación de visitas, acompañándote hasta encontrar un inquilino adecuado y formalizar el contrato.</div></div>
+        </div>
+        <div class="faq-item fade-in fade-in-delay-5" role="listitem">
+          <button class="faq-q" aria-expanded="false">
+            ¿La asesoría inicial tiene algún costo?
+            <div class="faq-q-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </button>
+          <div class="faq-a" role="region"><div class="faq-a-inner">La conversación inicial es sin compromiso. Nos encanta conocer tu propiedad y entender qué necesitas antes de hablar de cualquier acuerdo. Escríbenos por WhatsApp y con gusto coordinamos.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ CTA FINAL -->
+<section id="cta" aria-labelledby="cta-title">
+  <div class="container">
+    <div class="tag cta-tag fade-in">¿Listo para comenzar?</div>
+    <h2 class="heading-lg fade-in fade-in-delay-1" id="cta-title" style="margin-top:20px;">
+      Conversemos sobre<br><em>tu propiedad.</em>
+    </h2>
+    <p class="cta-sub fade-in fade-in-delay-2">
+      Si deseas vender o alquilar tu propiedad y recibir asesoría profesional, estaremos encantados de ayudarte.
+    </p>
+    <div class="cta-btns fade-in fade-in-delay-3">
+      <a href="https://wa.me/51940212339" target="_blank" rel="noopener" class="btn btn-white">
+        <svg class="wa-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        Hablar por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ FOOTER -->
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-grid" style="grid-template-columns:1fr 1fr;gap:48px;margin-bottom:40px;">
+      <div class="footer-brand">
+        <div class="nav-logo" style="margin-bottom:0;">
+          <div class="nav-logo-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div>
+            <div class="nav-logo-text">MV Inmobiliaria</div>
+            <div class="nav-logo-sub">Lima Metropolitana</div>
+          </div>
+        </div>
+        <p class="footer-desc">Corredora de bienes raíces especializada en la venta y alquiler de propiedades en Lima Metropolitana. Gestión profesional, cercana y transparente para propietarios.</p>
+        <div style="margin-top:24px;">
+          <a href="https://wa.me/51940212339" target="_blank" rel="noopener" class="btn btn-primary" style="font-size:.82rem;padding:10px 22px;">
+            <svg class="wa-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            Hablar por WhatsApp
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Servicios</div>
+        <ul>
+          <li><a href="#about">Venta de propiedades</a></li>
+          <li><a href="#about">Alquiler de inmuebles</a></li>
+          <li><a href="#beneficios">Marketing inmobiliario</a></li>
+          <li><a href="#programa">Transparencia MV</a></li>
+        </ul>
+        <div class="footer-col-title" style="margin-top:32px;">Empresa</div>
+        <ul>
+          <li><a href="#about">Quiénes Somos</a></li>
+          <li><a href="#equipo">Nuestro Equipo</a></li>
+          <li><a href="#testimonios">Testimonios</a></li>
+          <li><a href="#contacto">Preguntas Frecuentes</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 MV Inmobiliaria. Todos los derechos reservados.</span>
+      <span>Lima Metropolitana, Perú</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════ WHATSAPP FLOAT -->
+<div class="wa-float" role="complementary" aria-label="Contacto rápido por WhatsApp">
+  <div class="wa-float-label">¿Hablamos sobre tu propiedad?</div>
+  <a href="https://wa.me/51940212339" target="_blank" rel="noopener" class="wa-float-btn" aria-label="Abrir WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <div class="wa-pulse" aria-hidden="true">1</div>
+  </a>
+</div>
+
+<!-- ═══════════════════════════════════════════ SCRIPTS -->
+<script>
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navMobile = document.getElementById('navMobile');
+  navToggle.addEventListener('click', () => {
+    const open = navMobile.classList.toggle('open');
+    navToggle.classList.toggle('open', open);
+    navToggle.setAttribute('aria-expanded', open);
+  });
+  // Close mobile nav on link click
+  navMobile.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navMobile.classList.remove('open');
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Scroll-triggered fade-in
+  const fadeEls = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  fadeEls.forEach(el => observer.observe(el));
+
+  // Trigger hero elements immediately
+  document.querySelectorAll('#hero .fade-in').forEach(el => {
+    setTimeout(() => el.classList.add('visible'), 100);
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const btn = item.querySelector('.faq-q');
+    const panel = item.querySelector('.faq-a');
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-a').style.maxHeight = '0';
+        i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      });
+      // Open clicked if was closed
+      if (!isOpen) {
+        item.classList.add('open');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // Hero image parallax (subtle)
+  const heroImg = document.querySelector('.hero-img-wrap img');
+  if (heroImg && window.innerWidth > 768) {
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      heroImg.style.transform = `scale(1.04) translateY(${y * 0.04}px)`;
+    }, { passive: true });
+  }
+</script>
+</body>
+</html>
