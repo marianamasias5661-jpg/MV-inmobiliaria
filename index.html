@@ -122,6 +122,63 @@
     .btn svg { flex-shrink: 0; }
     .wa-icon { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
+    /* ─── CTA PRIMARIO DE CONVERSIÓN ─────────────────────────────── */
+    .btn-cta {
+      background: #fff; color: var(--olive);
+      font-size: 1rem; font-weight: 600;
+      padding: 18px 36px; border-radius: 100px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.25);
+      display: inline-flex; align-items: center; gap: 10px;
+      transition: all .3s cubic-bezier(.4,0,.2,1);
+      letter-spacing: .01em;
+    }
+    .btn-cta:hover {
+      background: var(--olive-pale);
+      transform: translateY(-3px);
+      box-shadow: 0 14px 40px rgba(0,0,0,.3);
+    }
+    .btn-cta:active { transform: translateY(-1px); }
+    /* En móvil, el CTA ocupa todo el ancho disponible */
+    @media (max-width: 600px) {
+      .btn-cta {
+        width: 100%; max-width: 360px;
+        justify-content: center;
+        font-size: 1.05rem; padding: 20px 32px;
+      }
+    }
+
+  /* ─── TRUST BAR ──────────────────────────────────────────────── */
+    .trust-bar {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
+    .trust-bar-inner {
+      display: flex; align-items: center; justify-content: center;
+      gap: 0; flex-wrap: nowrap;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 0 28px;
+      flex: 1; justify-content: center;
+    }
+    .trust-item + .trust-item {
+      border-left: 1px solid var(--border);
+    }
+    .trust-icon {
+      width: 36px; height: 36px; flex-shrink: 0;
+      background: var(--olive-pale); border-radius: var(--r-sm);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .trust-icon svg { width: 18px; height: 18px; stroke: var(--olive); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .trust-text strong { display: block; font-size: .82rem; font-weight: 600; color: var(--charcoal); }
+    .trust-text span { font-size: .75rem; color: var(--light); }
+    @media (max-width: 600px) {
+      .trust-bar-inner { gap: 0; flex-direction: column; align-items: stretch; }
+      .trust-item { padding: 12px 0; border-left: none !important; border-top: 1px solid var(--border); justify-content: flex-start; }
+      .trust-item:first-child { border-top: none; }
+    }
     /* ─── FADE-IN ANIMATION ──────────────────────────────────────── */
     .fade-in {
       opacity: 0; transform: translateY(28px);
@@ -217,7 +274,7 @@
       display: flex;
       align-items: center;
       overflow: hidden;
-      padding: calc(var(--nav-h) + 60px) 0 120px;
+      padding: calc(var(--nav-h) + 48px) 0 80px;
     }
     .hero-video-wrap {
       position: absolute; inset: 0; z-index: 0;
